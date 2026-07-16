@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="[##_desc_##]">
+  <meta name="theme-color" content="#132f4c">
+  <title>[##_page_title_##] — [##_title_##]</title>
+  <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    :root {
+      --skin-accent: [##_var_point-color_##];
+      --skin-reading-width: [##_var_content-width_##]px;
+    }
+  </style>
+  <script src="./images/script.js" defer></script>
+</head>
+<body id="[##_body_id_##]">
+  <s_t3>
+    <a class="skip-link" href="#main-content">본문 바로가기</a>
+    <div class="reading-progress" data-reading-progress aria-hidden="true"><span></span></div>
+
+    <header class="site-header" data-header>
+      <div class="site-header__inner">
+        <a class="brand" href="[##_blog_link_##]" aria-label="[##_title_##] 홈">
+          <span class="brand__mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="brand__copy">
+            <strong>[##_title_##]</strong>
+            <small>MARKET NOTE</small>
+          </span>
+        </a>
+
+        <nav class="top-nav" aria-label="주요 메뉴">
+          [##_blog_menu_##]
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-button" type="button" data-search-open aria-label="검색 열기">
+            <span class="search-icon" aria-hidden="true"></span>
+          </button>
+          <button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
+            <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
+        [##_blog_menu_##]
+        <a href="[##_rss_url_##]">RSS</a>
+      </div>
+    </header>
+
+    <div class="search-panel" data-search-panel hidden>
+      <div class="search-panel__backdrop" data-search-close></div>
+      <div class="search-panel__dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
+        <div class="search-panel__top">
+          <strong id="search-title">블로그 검색</strong>
+          <button type="button" data-search-close aria-label="검색 닫기">×</button>
+        </div>
+        <s_search>
+          <label class="search-form">
+            <span class="sr-only">검색어</span>
+            <input type="search" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="종목, 지수, 키워드 검색" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
+            <button type="button" onclick="[##_search_onclick_submit_##]">검색</button>
+          </label>
+        </s_search>
+      </div>
+    </div>
+
+    <main id="main-content">
+      <s_cover_group>
+        <div class="cover-stack">
+          <s_cover_rep>
+            <s_cover name="market-hero">
+              <section class="market-hero">
+                <div class="market-hero__copy">
+                  <p class="eyebrow">DAILY MARKET BRIEFING</p>
+                  <h1>[##_cover_title_##]</h1>
+                  <p>[##_desc_##]</p>
+                  <a class="primary-button" href="[##_blog_link_##]category">전체 글 보기 <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="market-hero__visual" aria-hidden="true">
+                  <span class="chart-grid"></span>
+                  <svg viewBox="0 0 420 210" role="presentation">
+                    <defs>
+                      <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#68b4ec" stop-opacity=".42"/>
+                        <stop offset="1" stop-color="#68b4ec" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <path class="area" d="M0 182 C45 165,58 174,90 146 S148 126,178 138 S236 86,270 102 S332 44,420 28 L420 210 L0 210 Z"/>
+                    <path class="line" d="M0 182 C45 165,58 174,90 146 S148 126,178 138 S236 86,270 102 S332 44,420 28"/>
+                    <circle cx="420" cy="28" r="6"/>
+                  </svg>
+                </div>
+              </section>
+            </s_cover>
+
+            <s_cover name="featured-cards">
+              <section class="home-section shell">
+                <div class="section-heading">
+                  <div><p class="eyebrow">FEATURED</p><h2>[##_cover_title_##]</h2></div>
+                  <a href="[##_blog_link_##]category">더보기 <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="featured-grid">
+                  <s_cover_item>
+                    <article class="featured-card">
+                      <a class="featured-card__thumb" href="[##_cover_item_url_##]">
+                        <s_cover_item_thumbnail><img src="[##_cover_item_thumbnail_##]" alt="" loading="lazy"></s_cover_item_thumbnail>
+                        <span class="thumb-fallback" aria-hidden="true"></span>
+                      </a>
+                      <div class="featured-card__body">
+                        <s_cover_item_article_info><a class="category" href="[##_cover_item_category_url_##]">[##_cover_item_category_##]</a></s_cover_item_article_info>
+                        <h3><a href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h3>
+                        <p>[##_cover_item_summary_##]</p>
+                        <s_cover_item_article_info><time>[##_cover_item_simple_date_##]</time></s_cover_item_article_info>
+                      </div>
+                    </article>
+                  </s_cover_item>
+                </div>
+              </section>
+            </s_cover>
+          </s_cover_rep>
+        </div>
+      </s_cover_group>
+
+      <div class="page-shell shell">
+        <div class="content-column">
+          [##_revenue_list_upper_##]
+
+          <s_list>
+            <header class="list-header">
+              <p class="eyebrow">ARCHIVE</p>
+              <h1>[##_list_conform_##]</h1>
+              <p>[##_list_description_##]</p>
+              <span>총 [##_list_count_##]개의 글</span>
+            </header>
+            <s_list_empty><div class="empty-state">아직 등록된 글이 없습니다.</div></s_list_empty>
+          </s_list>
+
+          <s_notice_rep>
+            <s_index_article_rep>
+              <article class="post-card notice-card">
+                <a class="post-card__thumb" href="[##_notice_rep_link_##]">
+                  <s_notice_rep_thumbnail><img src="[##_notice_rep_thumbnail_url_##]" alt="" loading="lazy"></s_notice_rep_thumbnail>
+                  <span class="thumb-fallback" aria-hidden="true"></span>
+                </a>
+                <div class="post-card__body">
+                  <span class="category">공지사항</span>
+                  <h2><a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h2>
+                  <p>[##_notice_rep_summary_##]</p>
+                  <div class="post-meta"><time>[##_notice_rep_simple_date_##]</time></div>
+                </div>
+              </article>
+            </s_index_article_rep>
+            <s_permalink_article_rep>
+              <article class="article-view">
+                <header class="article-header"><span class="category">공지사항</span><h1>[##_notice_rep_title_##]</h1><div class="article-meta"><time>[##_notice_rep_date_##]</time><span>[##_notice_rep_author_##]</span></div></header>
+                <div class="entry-content">[##_notice_rep_desc_##]</div>
+              </article>
+            </s_permalink_article_rep>
+          </s_notice_rep>
+
+          <s_article_rep>
+            <s_article_protected>
+              <article class="article-view protected-post">
+                <header class="article-header"><span class="category">보호글</span><h1>[##_article_rep_title_##]</h1><div class="article-meta"><time>[##_article_rep_date_##]</time></div></header>
+                <div class="protected-box">
+                  <strong>보호된 글입니다.</strong>
+                  <p>내용을 보려면 비밀번호를 입력해 주세요.</p>
+                  <label for="[##_article_password_##]">비밀번호</label>
+                  <div><input type="password" maxlength="16" id="[##_article_password_##]" name="[##_article_password_##]" onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]"><button type="button" onclick="[##_article_dissolve_##]">확인</button></div>
+                </div>
+              </article>
+            </s_article_protected>
+            <s_index_article_rep>
+              <article class="post-card index-post [##_list_style_##]">
+                <a class="post-card__thumb" href="[##_article_rep_link_##]">
+                  <s_article_rep_thumbnail><img src="[##_article_rep_thumbnail_url_##]" alt="" loading="lazy"></s_article_rep_thumbnail>
+                  <span class="thumb-fallback" aria-hidden="true"></span>
+                </a>
+                <div class="post-card__body">
+                  <a class="category" href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                  <h2><a href="[##_article_rep_link_##]">[##_article_rep_title_##]</a></h2>
+                  <p>[##_article_rep_summary_##]</p>
+                  <div class="post-meta"><time>[##_article_rep_simple_date_##]</time><s_rp_count><span>댓글 [##_article_rep_rp_cnt_##]</span></s_rp_count></div>
+                </div>
+              </article>
+            </s_index_article_rep>
+
+            <s_permalink_article_rep>
+              <article class="article-view">
+                <header class="article-header">
+                  <a class="category" href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                  <h1>[##_article_rep_title_##]</h1>
+                  <div class="article-meta"><time>[##_article_rep_date_##]</time><span>[##_article_rep_author_##]</span><span data-reading-time hidden></span></div>
+                </header>
+
+                <s_ad_div>
+                  <div class="admin-bar"><a href="[##_s_ad_m_link_##]">수정</a><button type="button" onclick="[##_s_ad_d_onclick_##]">삭제</button></div>
+                </s_ad_div>
+
+                <div class="entry-content" data-entry-content>
+                  [##_article_rep_desc_##]
+                </div>
+
+                <s_tag_label><div class="tag-trail"><strong>태그</strong>[##_tag_label_rep_##]</div></s_tag_label>
+
+                <div class="article-share">
+                  <span>이 글이 유용했다면 링크를 공유해 보세요.</span>
+                  <button type="button" data-copy-link aria-live="polite">링크 복사</button>
+                </div>
+
+                <s_article_related>
+                  <section class="related-posts">
+                    <div class="section-heading"><div><p class="eyebrow">MORE TO READ</p><h2>같은 카테고리의 글</h2></div></div>
+                    <div class="related-grid">
+                      <s_article_related_rep>
+                        <a class="related-card" href="[##_article_related_rep_link_##]">
+                          <s_article_related_rep_thumbnail><img src="[##_article_related_rep_thumbnail_link_##]" alt="" loading="lazy"></s_article_related_rep_thumbnail>
+                          <strong>[##_article_related_rep_title_##]</strong><time>[##_article_related_rep_date_##]</time>
+                        </a>
+                      </s_article_related_rep>
+                    </div>
+                  </section>
+                </s_article_related>
+
+                <nav class="article-nav" aria-label="이전 글과 다음 글">
+                  <s_article_prev><a href="[##_article_prev_link_##]"><span>이전 글</span><strong>[##_article_prev_title_##]</strong></a></s_article_prev>
+                  <s_article_next><a href="[##_article_next_link_##]"><span>다음 글</span><strong>[##_article_next_title_##]</strong></a></s_article_next>
+                </nav>
+
+                <s_rp>
+                  <section class="comments" aria-label="댓글">
+                    [##_comment_group_##]
+                  </section>
+                </s_rp>
+              </article>
+            </s_permalink_article_rep>
+          </s_article_rep>
+
+          <s_page_rep>
+            <article class="article-view">
+              <header class="article-header"><p class="eyebrow">PAGE</p><h1>[##_article_rep_title_##]</h1></header>
+              <div class="entry-content">[##_article_rep_desc_##]</div>
+            </article>
+          </s_page_rep>
+
+          <s_tag>
+            <section class="tag-page">
+              <header class="list-header"><p class="eyebrow">KEYWORDS</p><h1>태그</h1><p>관심 있는 주제를 선택해 관련 글을 모아보세요.</p></header>
+              <div class="tag-cloud"><s_tag_rep><a href="[##_tag_link_##]" class="[##_tag_class_##]">#[##_tag_name_##]</a></s_tag_rep></div>
+            </section>
+          </s_tag>
+
+          <s_guest>
+            <section class="guestbook article-view">
+              <header class="article-header"><p class="eyebrow">GUESTBOOK</p><h1>방명록</h1><p>의견이나 안부를 편하게 남겨주세요.</p></header>
+              [##_guestbook_group_##]
+            </section>
+          </s_guest>
+
+          [##_revenue_list_lower_##]
+
+          <s_paging>
+            <nav class="pagination" aria-label="페이지 이동">
+              <a [##_prev_page_##] class="page-arrow [##_no_more_prev_##]" aria-label="이전 페이지">←</a>
+              <span><s_paging_rep><a [##_paging_rep_link_##] class="page-number">[##_paging_rep_link_num_##]</a></s_paging_rep></span>
+              <a [##_next_page_##] class="page-arrow [##_no_more_next_##]" aria-label="다음 페이지">→</a>
+            </nav>
+          </s_paging>
+        </div>
+
+        <aside class="sidebar" aria-label="사이드바">
+          <div class="profile-card">
+            <div class="profile-card__image">[##_blog_image_##]</div>
+            <strong>[##_title_##]</strong>
+            <p>[##_desc_##]</p>
+            <span>by [##_blogger_##]</span>
+          </div>
+
+          <section class="side-card toc-card" data-toc hidden>
+            <p class="eyebrow">ON THIS REPORT</p>
+            <h2>이 리포트 목차</h2>
+            <nav data-toc-list aria-label="이 리포트 목차"></nav>
+          </section>
+
+          <s_sidebar>
+            <s_sidebar_element>
+              <!-- 카테고리 -->
+              <section class="side-card category-card"><h2>카테고리</h2>[##_category_list_##]</section>
+            </s_sidebar_element>
+            <s_sidebar_element>
+              <!-- 최근 글 -->
+              <section class="side-card"><h2>최근 글</h2><ol class="recent-list"><s_rctps_rep><li><a href="[##_rctps_rep_link_##]">[##_rctps_rep_title_##]</a><time>[##_rctps_rep_simple_date_##]</time></li></s_rctps_rep></ol></section>
+            </s_sidebar_element>
+            <s_sidebar_element>
+              <!-- 방문자 수 -->
+              <section class="side-card visitor-card"><h2>방문자</h2><strong>[##_count_total_##]</strong><div><span>오늘 [##_count_today_##]</span><span>어제 [##_count_yesterday_##]</span></div></section>
+            </s_sidebar_element>
+          </s_sidebar>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell site-footer__inner">
+        <div><strong>[##_title_##]</strong><p>[##_desc_##]</p></div>
+        <div class="footer-links"><a href="[##_blog_link_##]">홈</a><a href="[##_taglog_link_##]">태그</a><a href="[##_guestbook_link_##]">방명록</a><a href="[##_rss_url_##]">RSS</a></div>
+        <p class="copyright">© [##_title_##]. All rights reserved.</p>
+      </div>
+    </footer>
+  </s_t3>
+</body>
+</html>
