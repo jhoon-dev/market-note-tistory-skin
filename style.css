@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.0
+ * Market Note for Tistory 1.5.1
  * Responsive finance-magazine skin
  */
 
@@ -318,12 +318,12 @@ button { color: inherit; }
 .entry-content .ai-daily-post .adr-sources a { color: #536d91; font-size: .88em; word-break: break-all; }
 
 /* JCOS VS Code beginner guides
- * Source: MASTER_VSCODE_BEGINNER_GUIDE_v2.1.0 (LOCKED)
+ * Source: MASTER_VSCODE_BEGINNER_GUIDE_v2.3.3 (LOCKED)
  */
 .article-view.is-jcos-vscode-report .entry-content { width: min(860px, calc(100% - 40px)); }
 .entry-content .jcos-vscode-guide { width: 100%; margin: 0 auto; padding: 32px 0 64px; color: #243346; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.75; overflow-wrap: anywhere; word-break: keep-all; }
 .entry-content .jcos-vscode-guide * { box-sizing: border-box; }
-.entry-content .jcos-vscode-guide h2 { margin: 52px 0 18px; padding: 0; border: 0; color: #0f172a; font-size: 27px; line-height: 1.4; }
+.entry-content .jcos-vscode-guide h2 { margin: 52px 0 18px; padding: 0 0 .55em; border: 0; border-bottom: 2px solid var(--navy-900); color: #0f172a; font-size: 27px; line-height: 1.4; }
 .entry-content .jcos-vscode-guide h3 { margin: 30px 0 12px; color: #1e293b; font-size: 20px; line-height: 1.5; }
 .entry-content .jcos-vscode-guide p { margin: 0 0 18px; }
 .entry-content .jcos-vscode-guide li { margin: 7px 0; }
