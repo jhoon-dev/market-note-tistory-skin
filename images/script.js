@@ -143,22 +143,6 @@
   var progressBar = progress && progress.querySelector("span");
 
   if (articleContent) {
-    var aiDailyReport = articleContent.querySelector(".ai-daily-post");
-    var vscodeGuide = articleContent.querySelector(".jcos-vscode-guide");
-    var stockDailyReport = articleContent.querySelector(".mn-report[data-jcos-master-id='MASTER_STOCK_DAILY']");
-    var jcosReport = aiDailyReport || vscodeGuide;
-    if (jcosReport) {
-      var articleView = articleContent.closest(".article-view");
-      if (articleView) {
-        articleView.classList.add("is-jcos-report");
-        if (vscodeGuide) articleView.classList.add("is-jcos-vscode-report");
-      }
-    }
-    if (stockDailyReport) {
-      var stockArticleView = articleContent.closest(".article-view");
-      if (stockArticleView) stockArticleView.classList.add("is-stock-daily-report");
-    }
-
     var plainText = (articleContent.textContent || "").replace(/\s+/g, " ").trim();
     var readingTime = Math.max(1, Math.ceil(plainText.length / 500));
     var readingTimeTarget = document.querySelector("[data-reading-time]");
@@ -169,9 +153,7 @@
 
     var toc = document.querySelector("[data-toc]");
     var tocList = document.querySelector("[data-toc-list]");
-    // JCOS reports ship a curated in-content TOC in their locked masters.
-    // Do not replace it with the skin's generic heading collector.
-    var headings = jcosReport ? [] : articleContent.querySelectorAll("h2, h3");
+    var headings = articleContent.querySelectorAll("h2, h3");
     var tocLinks = [];
 
     if (toc && tocList && headings.length >= 2) {

@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.1
+ * Market Note for Tistory 1.5.2
  * Responsive finance-magazine skin
  */
 
@@ -241,8 +241,6 @@ button { color: inherit; }
  * Source: MASTER_AI_DAILY_v1.0.1 (LOCKED)
  * Report markup stays portable; the skin owns the shared presentation layer.
  */
-.article-view.is-jcos-report > .article-header { display: none; }
-.article-view.is-jcos-report .entry-content { padding-top: 40px; }
 .entry-content .ai-daily-post {
   --adr-primary: #174b9b;
   --adr-border: #dfe7f1;
@@ -320,7 +318,6 @@ button { color: inherit; }
 /* JCOS VS Code beginner guides
  * Source: MASTER_VSCODE_BEGINNER_GUIDE_v2.3.3 (LOCKED)
  */
-.article-view.is-jcos-vscode-report .entry-content { width: min(860px, calc(100% - 40px)); }
 .entry-content .jcos-vscode-guide { width: 100%; margin: 0 auto; padding: 32px 0 64px; color: #243346; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.75; overflow-wrap: anywhere; word-break: keep-all; }
 .entry-content .jcos-vscode-guide * { box-sizing: border-box; }
 .entry-content .jcos-vscode-guide h2 { margin: 52px 0 18px; padding: 0 0 .55em; border: 0; border-bottom: 2px solid var(--navy-900); color: #0f172a; font-size: 27px; line-height: 1.4; }
@@ -347,7 +344,6 @@ button { color: inherit; }
 /* JCOS Stock Daily briefs
  * Source: MASTER_STOCK_DAILY_v1.0.0_TISTORY_BODY (LOCKED, MARKET_NOTE)
  */
-.article-view.is-stock-daily-report .entry-content { width: min(860px, calc(100% - 40px)); }
 .entry-content .mn-report { max-width: 100%; color: #243346; overflow-wrap: anywhere; }
 .entry-content .mn-report > :first-child { margin-top: 0; }
 .entry-content .mn-report .market-summary { border-color: #d5e6f5; background: linear-gradient(135deg,#f5fbff 0%,#e9f3fb 100%); }
@@ -493,7 +489,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .entry-content { width: calc(100% - 38px); padding-block: 38px 48px; font-size: .96rem; }
   .entry-content h2 { font-size: 1.42rem; }
   .entry-content table { display: block; overflow-x: auto; white-space: nowrap; }
-  .article-view.is-jcos-report .entry-content { padding-top: 28px; }
   .entry-content .ai-daily-post { overflow-wrap: anywhere; word-break: normal; }
   .entry-content .ai-daily-post .adr-hero { padding: 26px 21px; border-radius: 15px; }
   .entry-content .ai-daily-post .adr-toc-grid { grid-template-columns: 1fr; gap: 0; }
@@ -502,13 +497,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .entry-content .ai-daily-post .adr-timeline > div { grid-template-columns: 1fr; gap: 3px; }
   .entry-content .ai-daily-post .adr-code, .entry-content .ai-daily-post .adr-prompt { padding: 15px; font-size: .78em; }
   .entry-content .ai-daily-post .adr-table { display: table; overflow: visible; white-space: normal; }
-  .article-view.is-jcos-vscode-report .entry-content { width: calc(100% - 24px); }
   .entry-content .jcos-vscode-guide { padding-top: 18px; word-break: normal; }
   .entry-content .jcos-vscode-guide .vscode-hero { padding: 34px 24px; border-radius: 16px; }
   .entry-content .jcos-vscode-guide .vscode-hero h1 { font-size: 29px; }
   .entry-content .jcos-vscode-guide .vscode-hero p { font-size: 16px; }
   .entry-content .jcos-vscode-guide h2 { margin-top: 42px; font-size: 23px; }
-  .article-view.is-stock-daily-report .entry-content { width: calc(100% - 38px); }
   .entry-content .mn-report .mn-table-wrap table { display: table; overflow: visible; white-space: normal; }
   .tag-trail, .article-share { width: calc(100% - 38px); }
   .related-grid { grid-template-columns: repeat(2,1fr); }
