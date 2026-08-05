@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.0
+ * Market Note for Tistory 1.5.0
  * Responsive finance-magazine skin
  */
 
@@ -236,6 +236,127 @@ button { color: inherit; }
 .entry-content .chart-card, .entry-content [role="img"] { max-width: 100%; }
 .entry-content .toc-anchor { display: block; width: 1px; height: 1px; margin-bottom: -1px; opacity: 0; pointer-events: none; scroll-margin-top: 104px; }
 .entry-content h2[id], .entry-content h3[id] { scroll-margin-top: 104px; }
+
+/* JCOS AI Daily reports
+ * Source: MASTER_AI_DAILY_v1.0.1 (LOCKED)
+ * Report markup stays portable; the skin owns the shared presentation layer.
+ */
+.article-view.is-jcos-report > .article-header { display: none; }
+.article-view.is-jcos-report .entry-content { padding-top: 40px; }
+.entry-content .ai-daily-post {
+  --adr-primary: #174b9b;
+  --adr-border: #dfe7f1;
+  --adr-soft: #52647b;
+  color: inherit;
+  line-height: inherit;
+  word-break: keep-all;
+}
+.entry-content .ai-daily-post *, .entry-content .ai-daily-post *::before, .entry-content .ai-daily-post *::after { box-sizing: border-box; }
+.entry-content .ai-daily-post .adr-hero { margin: 0 0 28px; padding: 32px 30px; border: 0; border-radius: 18px; color: #fff; background: linear-gradient(135deg, #0a214d 0%, #165bc1 100%); }
+.entry-content .ai-daily-post .adr-series { display: inline-block; margin: 0 0 10px; color: rgba(255,255,255,.82); font-size: .82em; font-weight: 700; letter-spacing: .06em; }
+.entry-content .ai-daily-post .adr-hero > h1 { margin: 0 0 12px; padding: 0; border: 0; color: #fff; background: none; font-size: clamp(1.55rem,4vw,2rem); line-height: 1.38; }
+.entry-content .ai-daily-post .adr-date { margin: 0 0 16px; color: rgba(255,255,255,.75); font-size: .86em; }
+.entry-content .ai-daily-post .adr-lead { margin: 0; color: #eaf2ff; line-height: 1.72; }
+.entry-content .ai-daily-post .adr-toc { margin: 0 0 34px; padding: 20px 22px; border: 1px solid #eadfca; border-radius: 14px; background: #fffaf1; }
+.entry-content .ai-daily-post .adr-toc > strong { display: block; margin: 0 0 8px; color: #755323; }
+.entry-content .ai-daily-post .adr-toc-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px; }
+.entry-content .ai-daily-post .adr-toc-grid > ol { margin: 0; padding: 0 0 0 20px; }
+.entry-content .ai-daily-post .adr-toc li { margin: 4px 0; }
+.entry-content .ai-daily-post .adr-toc a { color: #5f4b31; text-decoration: none; }
+.entry-content .ai-daily-post .adr-toc a:hover { color: var(--adr-primary); text-decoration: underline; }
+.entry-content .ai-daily-post .adr-section { margin: 0 0 38px; padding: 0; border: 0; background: transparent; box-shadow: none; }
+.entry-content .ai-daily-post .adr-section > h2 { margin: 0 0 20px; padding: 0 0 10px; border: 0; border-bottom: 2px solid #e7eef8; color: #173f78; background: none; font-size: 1.42em; line-height: 1.42; }
+.entry-content .ai-daily-post .adr-section > h3, .entry-content .ai-daily-post .adr-section div > h3 { margin: 25px 0 10px; padding: 0; border: 0; color: #294d78; background: none; font-size: 1.08em; }
+.entry-content .ai-daily-post .adr-section > p { margin: 0 0 15px; }
+.entry-content .ai-daily-post .adr-label { display: inline-block; margin: 0 0 7px; color: var(--adr-primary); font-size: .82em; font-weight: 700; }
+.entry-content .ai-daily-post .adr-inline-label { color: #174b9b; }
+.entry-content .ai-daily-post .adr-summary-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.entry-content .ai-daily-post .adr-summary-card { padding: 20px; border: 1px solid var(--adr-border); border-radius: 14px; background: #fff; box-shadow: 0 6px 20px rgba(28,63,108,.05); }
+.entry-content .ai-daily-post .adr-summary-card > span { display: inline-flex; width: 32px; height: 32px; margin: 0 0 12px; align-items: center; justify-content: center; border-radius: 50%; color: var(--adr-primary); background: #eaf2ff; font-size: .78em; font-weight: 800; }
+.entry-content .ai-daily-post .adr-summary-card > h3 { margin: 0 0 9px; color: #23466f; font-size: 1em; line-height: 1.5; }
+.entry-content .ai-daily-post .adr-summary-card > p { margin: 0; color: var(--adr-soft); font-size: .92em; line-height: 1.7; }
+.entry-content .ai-daily-post .adr-highlight, .entry-content .ai-daily-post .adr-note { margin: 23px 0; padding: 19px 21px; border: 0; border-left: 4px solid #2d68c4; border-radius: 10px; background: #eef5ff; }
+.entry-content .ai-daily-post .adr-highlight-warm { border-left-color: #d39a34; background: #fff8ea; }
+.entry-content .ai-daily-post .adr-highlight-green { border-left-color: #3d9568; background: #eef9f3; }
+.entry-content .ai-daily-post .adr-highlight > strong, .entry-content .ai-daily-post .adr-note > strong { display: block; margin: 0 0 6px; color: #173f78; }
+.entry-content .ai-daily-post .adr-highlight > p, .entry-content .ai-daily-post .adr-note > p { margin: 0; }
+.entry-content .ai-daily-post .adr-glossary-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.entry-content .ai-daily-post .adr-glossary-grid > div { padding: 16px 18px; border: 1px solid var(--adr-border); border-radius: 11px; background: #f9fbfe; }
+.entry-content .ai-daily-post .adr-glossary-grid strong { display: block; margin-bottom: 5px; color: #294d78; }
+.entry-content .ai-daily-post .adr-glossary-grid p { margin: 0; color: var(--adr-soft); font-size: .92em; }
+.entry-content .ai-daily-post .adr-role-grid, .entry-content .ai-daily-post .adr-tool-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.entry-content .ai-daily-post .adr-role-card, .entry-content .ai-daily-post .adr-tool-grid > div { padding: 19px 20px; border: 1px solid var(--adr-border); border-radius: 12px; background: #fff; }
+.entry-content .ai-daily-post .adr-role-card > h3, .entry-content .ai-daily-post .adr-tool-grid h3 { margin: 0 0 8px; color: #294d78; font-size: 1em; }
+.entry-content .ai-daily-post .adr-role-card > p, .entry-content .ai-daily-post .adr-tool-grid p { margin: 0; color: var(--adr-soft); font-size: .92em; }
+.entry-content .ai-daily-post .adr-table-wrap { width: 100%; margin: 0 0 22px; overflow-x: auto; border-radius: 0; -webkit-overflow-scrolling: touch; }
+.entry-content .ai-daily-post .adr-table { display: table; width: 100%; min-width: 680px; margin: 0; overflow: visible; border: 0; border-collapse: collapse; border-spacing: 0; border-radius: 0; font-size: .88em; box-shadow: none; white-space: normal; }
+.entry-content .ai-daily-post .adr-table th { padding: 11px 12px; border: 1px solid #fff; color: #fff; background: #102e61; text-align: left; }
+.entry-content .ai-daily-post .adr-table td { padding: 11px 12px; border: 1px solid var(--adr-border); vertical-align: top; text-align: left; }
+.entry-content .ai-daily-post .adr-table tbody tr:nth-child(even) { background: #f8fafc; }
+.entry-content .ai-daily-post .adr-code, .entry-content .ai-daily-post .adr-prompt { margin: 18px 0 24px; padding: 18px 20px; overflow: auto; border: 1px solid #d5dce5; border-radius: 11px; color: inherit; background: #f2f4f7; font-size: .87em; line-height: 1.55; white-space: pre; }
+.entry-content .ai-daily-post .adr-code code, .entry-content .ai-daily-post .adr-prompt code { font-family: ui-monospace,SFMono-Regular,Consolas,monospace; }
+.entry-content .ai-daily-post .adr-builder { padding: 20px 22px; border: 1px solid var(--adr-border); border-radius: 13px; background: #f9fbfe; }
+.entry-content .ai-daily-post .adr-builder p { margin: 0 0 10px; }
+.entry-content .ai-daily-post .adr-builder p:last-child { margin-bottom: 0; }
+.entry-content .ai-daily-post .adr-timeline { display: grid; gap: 11px; }
+.entry-content .ai-daily-post .adr-timeline > div { display: grid; padding: 16px 18px; grid-template-columns: 72px minmax(0,1fr); gap: 16px; border: 1px solid var(--adr-border); border-radius: 11px; background: #fff; }
+.entry-content .ai-daily-post .adr-timeline strong { color: var(--adr-primary); }
+.entry-content .ai-daily-post .adr-timeline p { margin: 0; }
+.entry-content .ai-daily-post .adr-action-list { margin: 0; padding: 0; list-style: none; counter-reset: adr-action; }
+.entry-content .ai-daily-post .adr-action-list > li { position: relative; margin: 0 0 11px; padding: 16px 18px 16px 58px; border: 1px solid var(--adr-border); border-radius: 11px; background: #f9fbfe; list-style: none; counter-increment: adr-action; }
+.entry-content .ai-daily-post .adr-action-list > li::before { position: absolute; top: 16px; left: 18px; display: flex; width: 27px; height: 27px; align-items: center; justify-content: center; border-radius: 7px; color: #fff; background: var(--adr-primary); font-size: .78em; font-weight: 800; content: counter(adr-action); }
+.entry-content .ai-daily-post .adr-action-list strong, .entry-content .ai-daily-post .adr-action-list span { display: block; }
+.entry-content .ai-daily-post .adr-action-list span { margin-top: 3px; color: #617086; font-size: .92em; }
+.entry-content .ai-daily-post .adr-editor { padding: 23px 24px; border: 1px solid #dce6f3; border-radius: 14px; background: #f8fbff; }
+.entry-content .ai-daily-post .adr-closing { padding: 23px 24px; border-radius: 14px; color: #eef5ff; background: #102e61; }
+.entry-content .ai-daily-post .adr-closing > h2 { border: 0; color: #fff; }
+.entry-content .ai-daily-post .adr-closing > p { color: #eef5ff; }
+.entry-content .ai-daily-post .adr-sources { margin: 36px 0 0; padding: 20px 0 0; border-top: 1px solid var(--adr-border); }
+.entry-content .ai-daily-post .adr-sources > h2 { margin: 0 0 12px; padding: 0; border: 0; color: #42546b; background: none; font-size: 1.05em; }
+.entry-content .ai-daily-post .adr-sources > ul { margin: 0; padding: 0 0 0 20px; }
+.entry-content .ai-daily-post .adr-sources li { margin: 6px 0; }
+.entry-content .ai-daily-post .adr-sources a { color: #536d91; font-size: .88em; word-break: break-all; }
+
+/* JCOS VS Code beginner guides
+ * Source: MASTER_VSCODE_BEGINNER_GUIDE_v2.1.0 (LOCKED)
+ */
+.article-view.is-jcos-vscode-report .entry-content { width: min(860px, calc(100% - 40px)); }
+.entry-content .jcos-vscode-guide { width: 100%; margin: 0 auto; padding: 32px 0 64px; color: #243346; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.75; overflow-wrap: anywhere; word-break: keep-all; }
+.entry-content .jcos-vscode-guide * { box-sizing: border-box; }
+.entry-content .jcos-vscode-guide h2 { margin: 52px 0 18px; padding: 0; border: 0; color: #0f172a; font-size: 27px; line-height: 1.4; }
+.entry-content .jcos-vscode-guide h3 { margin: 30px 0 12px; color: #1e293b; font-size: 20px; line-height: 1.5; }
+.entry-content .jcos-vscode-guide p { margin: 0 0 18px; }
+.entry-content .jcos-vscode-guide li { margin: 7px 0; }
+.entry-content .jcos-vscode-guide code { padding: .12em .35em; border-radius: 5px; color: #be123c; background: #f1f5f9; font-family: Consolas, "SFMono-Regular", monospace; }
+.entry-content .jcos-vscode-guide .vscode-hero { margin: 0 0 30px; padding: 46px 42px; overflow: hidden; border-radius: 18px; color: #fff; background: linear-gradient(135deg, #111827 0%, #1e3a8a 62%, #2563eb 100%); box-shadow: 0 16px 38px rgba(15,23,42,.18); }
+.entry-content .jcos-vscode-guide .vscode-hero h1 { margin: 0 0 18px; padding: 0; border: 0; color: #fff; font-size: 36px; line-height: 1.38; letter-spacing: -.035em; }
+.entry-content .jcos-vscode-guide .vscode-hero p { max-width: 720px; margin: 0; color: #dbeafe; font-size: 18px; line-height: 1.75; }
+.entry-content .jcos-vscode-guide .vscode-hero-badge { display: inline-block; margin-bottom: 15px; padding: 5px 11px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: #fff; font-size: 13px; font-weight: 700; line-height: 1.5; letter-spacing: .04em; }
+.entry-content .jcos-vscode-guide .lead-box { display: block; margin: 24px 0 26px; padding: 20px 24px; border: 0; border-left: 4px solid #2563eb; border-radius: 12px; background: #eff6ff; box-shadow: none; }
+.entry-content .jcos-vscode-guide .vscode-toc { padding: 20px 22px 18px; border: 1px solid #e2e8f0; border-left: 4px solid #64748b; border-radius: 12px; color: #334155; background: #f8fafc; box-shadow: none; }
+.entry-content .jcos-vscode-guide .vscode-toc > b { display: block; margin: 0 0 10px; color: #0f172a; font-size: 16px; line-height: 1.5; }
+.entry-content .jcos-vscode-guide .vscode-toc ol { margin-bottom: 0; padding-left: 22px; }
+.entry-content .jcos-vscode-guide .vscode-toc a { color: #475569; text-decoration-color: #cbd5e1; text-underline-offset: 3px; }
+.entry-content .jcos-vscode-guide .warning-box { margin: 22px 0; padding: 18px 20px; border: 0; border-left: 4px solid #dc2626; border-radius: 10px; color: #7f1d1d; background: #fef2f2; box-shadow: none; }
+.entry-content .jcos-vscode-guide blockquote { margin: 22px 0; padding: 18px 20px; border: 1px solid #bfdbfe; border-left: 4px solid #2563eb; border-radius: 10px; color: #1e3a8a; background: #eff6ff; }
+.entry-content .jcos-vscode-guide pre { margin: 18px 0 24px; padding: 18px 20px; overflow-x: auto; border-radius: 10px; color: #e5edf5; background: #0f172a; }
+.entry-content .jcos-vscode-guide pre code { display: block; margin: 0; padding: 0; border: 0; border-radius: 0; color: #e5edf5; background: transparent; box-shadow: none; }
+.entry-content .jcos-vscode-guide .official-links li { margin-bottom: .65em; }
+.entry-content .jcos-vscode-guide .master-note { margin-top: 48px; padding-top: 18px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 13px; }
+
+/* JCOS Stock Daily briefs
+ * Source: MASTER_STOCK_DAILY_v1.0.0_TISTORY_BODY (LOCKED, MARKET_NOTE)
+ */
+.article-view.is-stock-daily-report .entry-content { width: min(860px, calc(100% - 40px)); }
+.entry-content .mn-report { max-width: 100%; color: #243346; overflow-wrap: anywhere; }
+.entry-content .mn-report > :first-child { margin-top: 0; }
+.entry-content .mn-report .market-summary { border-color: #d5e6f5; background: linear-gradient(135deg,#f5fbff 0%,#e9f3fb 100%); }
+.entry-content .mn-report .warning-box { border-color: #efd59c; background: linear-gradient(135deg,#fff5dc 0%,#fffdf7 100%); }
+.entry-content .mn-report .mn-table-wrap { width: 100%; max-width: 100%; margin: 28px 0; overflow-x: auto; border-radius: 12px; -webkit-overflow-scrolling: touch; }
+.entry-content .mn-report .mn-table-wrap table { display: table; width: 100%; min-width: 680px; margin: 0; overflow: visible; white-space: normal; }
+.entry-content .mn-report .mn-table-wrap th, .entry-content .mn-report .mn-table-wrap td { text-align: left; }
+.entry-content .mn-report .mn-chart { width: 100%; max-width: 100%; margin: 28px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.entry-content .mn-report .mn-chart > div { min-width: 360px; }
 .tag-trail { width: min(var(--content-width), calc(100% - 48px)); margin: 0 auto 36px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--slate); font-size: .82rem; }
 .tag-trail strong { margin-right: 12px; color: var(--navy-950); }
 .tag-trail a { display: inline-flex; margin: 4px 4px; padding: 5px 10px; border-radius: 99px; color: var(--blue-600); background: var(--blue-100); }
@@ -372,6 +493,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .entry-content { width: calc(100% - 38px); padding-block: 38px 48px; font-size: .96rem; }
   .entry-content h2 { font-size: 1.42rem; }
   .entry-content table { display: block; overflow-x: auto; white-space: nowrap; }
+  .article-view.is-jcos-report .entry-content { padding-top: 28px; }
+  .entry-content .ai-daily-post { overflow-wrap: anywhere; word-break: normal; }
+  .entry-content .ai-daily-post .adr-hero { padding: 26px 21px; border-radius: 15px; }
+  .entry-content .ai-daily-post .adr-toc-grid { grid-template-columns: 1fr; gap: 0; }
+  .entry-content .ai-daily-post .adr-summary-grid, .entry-content .ai-daily-post .adr-role-grid, .entry-content .ai-daily-post .adr-tool-grid, .entry-content .ai-daily-post .adr-glossary-grid { grid-template-columns: 1fr; }
+  .entry-content .ai-daily-post .adr-section { margin-bottom: 32px; }
+  .entry-content .ai-daily-post .adr-timeline > div { grid-template-columns: 1fr; gap: 3px; }
+  .entry-content .ai-daily-post .adr-code, .entry-content .ai-daily-post .adr-prompt { padding: 15px; font-size: .78em; }
+  .entry-content .ai-daily-post .adr-table { display: table; overflow: visible; white-space: normal; }
+  .article-view.is-jcos-vscode-report .entry-content { width: calc(100% - 24px); }
+  .entry-content .jcos-vscode-guide { padding-top: 18px; word-break: normal; }
+  .entry-content .jcos-vscode-guide .vscode-hero { padding: 34px 24px; border-radius: 16px; }
+  .entry-content .jcos-vscode-guide .vscode-hero h1 { font-size: 29px; }
+  .entry-content .jcos-vscode-guide .vscode-hero p { font-size: 16px; }
+  .entry-content .jcos-vscode-guide h2 { margin-top: 42px; font-size: 23px; }
+  .article-view.is-stock-daily-report .entry-content { width: calc(100% - 38px); }
+  .entry-content .mn-report .mn-table-wrap table { display: table; overflow: visible; white-space: normal; }
   .tag-trail, .article-share { width: calc(100% - 38px); }
   .related-grid { grid-template-columns: repeat(2,1fr); }
   .article-nav { grid-template-columns: 1fr; }
