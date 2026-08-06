@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.2
+ * Market Note for Tistory 1.5.3
  * Responsive finance-magazine skin
  */
 
@@ -316,7 +316,8 @@ button { color: inherit; }
 .entry-content .ai-daily-post .adr-sources a { color: #536d91; font-size: .88em; word-break: break-all; }
 
 /* JCOS VS Code beginner guides
- * Source: MASTER_VSCODE_BEGINNER_GUIDE_v2.3.3 (LOCKED)
+ * Shared presentation owner for styleless Tistory body fragments.
+ * Contract: MASTER_VSCODE_BEGINNER_GUIDE_v2.3.6 (LOCKED)
  */
 .entry-content .jcos-vscode-guide { width: 100%; margin: 0 auto; padding: 32px 0 64px; color: #243346; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 16px; line-height: 1.75; overflow-wrap: anywhere; word-break: keep-all; }
 .entry-content .jcos-vscode-guide * { box-sizing: border-box; }
@@ -325,20 +326,34 @@ button { color: inherit; }
 .entry-content .jcos-vscode-guide p { margin: 0 0 18px; }
 .entry-content .jcos-vscode-guide li { margin: 7px 0; }
 .entry-content .jcos-vscode-guide code { padding: .12em .35em; border-radius: 5px; color: #be123c; background: #f1f5f9; font-family: Consolas, "SFMono-Regular", monospace; }
-.entry-content .jcos-vscode-guide .vscode-hero { margin: 0 0 30px; padding: 46px 42px; overflow: hidden; border-radius: 18px; color: #fff; background: linear-gradient(135deg, #111827 0%, #1e3a8a 62%, #2563eb 100%); box-shadow: 0 16px 38px rgba(15,23,42,.18); }
-.entry-content .jcos-vscode-guide .vscode-hero h1 { margin: 0 0 18px; padding: 0; border: 0; color: #fff; font-size: 36px; line-height: 1.38; letter-spacing: -.035em; }
-.entry-content .jcos-vscode-guide .vscode-hero p { max-width: 720px; margin: 0; color: #dbeafe; font-size: 18px; line-height: 1.75; }
-.entry-content .jcos-vscode-guide .vscode-hero-badge { display: inline-block; margin-bottom: 15px; padding: 5px 11px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: #fff; font-size: 13px; font-weight: 700; line-height: 1.5; letter-spacing: .04em; }
+.entry-content .jcos-vscode-guide section { scroll-margin-top: 24px; }
+.entry-content .jcos-vscode-guide .vscode-hero { margin: 0 0 30px; padding: 48px 42px 46px; overflow: hidden; border-radius: 18px; color: #fff; background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 58%, #2563eb 100%); box-shadow: 0 16px 38px rgba(15,23,42,.18); }
+.entry-content .jcos-vscode-guide .vscode-hero h1 { margin: 0 0 18px; padding: 0; border: 0; color: #fff; font-size: 36px; font-weight: 800; line-height: 1.34; letter-spacing: -.035em; }
+.entry-content .jcos-vscode-guide .vscode-hero p { max-width: 720px; margin: 0; color: #dbeafe; font-size: 18px; line-height: 1.72; }
+.entry-content .jcos-vscode-guide .vscode-hero-badge { display: inline-block; margin: 0 0 17px; padding: 5px 11px; border: 1px solid rgba(255,255,255,.38); border-radius: 999px; color: #fff; font-size: 13px; font-weight: 700; line-height: 1.5; letter-spacing: .035em; }
+.entry-content .jcos-vscode-guide .vscode-summary { margin: 0 0 24px; padding: 20px 23px; border: 1px solid #dbe3ec; border-radius: 12px; background: #f8fafc; box-shadow: none; }
+.entry-content .jcos-vscode-guide .vscode-summary p { margin: 0 0 8px; }
+.entry-content .jcos-vscode-guide .vscode-summary p:last-child { margin-bottom: 0; }
+.entry-content .jcos-vscode-guide .vscode-summary-title { color: #0f172a; font-weight: 800; }
 .entry-content .jcos-vscode-guide .lead-box { display: block; margin: 24px 0 26px; padding: 20px 24px; border: 0; border-left: 4px solid #2563eb; border-radius: 12px; background: #eff6ff; box-shadow: none; }
-.entry-content .jcos-vscode-guide .vscode-toc { padding: 20px 22px 18px; border: 1px solid #e2e8f0; border-left: 4px solid #64748b; border-radius: 12px; color: #334155; background: #f8fafc; box-shadow: none; }
+.entry-content .jcos-vscode-guide .vscode-toc { margin: 0 0 42px; padding: 20px 22px 18px; border: 1px solid #e2e8f0; border-left: 4px solid #64748b; border-radius: 12px; color: #334155; background: #f8fafc; box-shadow: none; }
 .entry-content .jcos-vscode-guide .vscode-toc > b { display: block; margin: 0 0 10px; color: #0f172a; font-size: 16px; line-height: 1.5; }
-.entry-content .jcos-vscode-guide .vscode-toc ol { margin-bottom: 0; padding-left: 22px; }
-.entry-content .jcos-vscode-guide .vscode-toc a { color: #475569; text-decoration-color: #cbd5e1; text-underline-offset: 3px; }
+.entry-content .jcos-vscode-guide .vscode-toc ol { margin: 0; padding-left: 22px; }
+.entry-content .jcos-vscode-guide .vscode-toc li { margin: 5px 0; }
+.entry-content .jcos-vscode-guide .vscode-toc a { color: #2563eb; text-decoration-color: #93c5fd; text-underline-offset: 3px; }
+.entry-content .jcos-vscode-guide .vscode-section-title { color: #0f172a; }
+.entry-content .jcos-vscode-guide .procedure-step { margin: 24px 0; padding: 22px 24px; border: 1px solid #dbe3ec; border-radius: 14px; background: #fff; box-shadow: 0 8px 22px rgba(15,23,42,.055); }
+.entry-content .jcos-vscode-guide .procedure-step > h3:first-child { margin-top: 0; }
+.entry-content .jcos-vscode-guide .procedure-step blockquote { margin: 18px 0; border-left-color: #2563eb; background: #eff6ff; }
+.entry-content .jcos-vscode-guide .vscode-safety { border-left-color: #f59e0b; }
 .entry-content .jcos-vscode-guide .warning-box { margin: 22px 0; padding: 18px 20px; border: 0; border-left: 4px solid #dc2626; border-radius: 10px; color: #7f1d1d; background: #fef2f2; box-shadow: none; }
 .entry-content .jcos-vscode-guide blockquote { margin: 22px 0; padding: 18px 20px; border: 1px solid #bfdbfe; border-left: 4px solid #2563eb; border-radius: 10px; color: #1e3a8a; background: #eff6ff; }
-.entry-content .jcos-vscode-guide pre { margin: 18px 0 24px; padding: 18px 20px; overflow-x: auto; border-radius: 10px; color: #e5edf5; background: #0f172a; }
-.entry-content .jcos-vscode-guide pre code { display: block; margin: 0; padding: 0; border: 0; border-radius: 0; color: #e5edf5; background: transparent; box-shadow: none; }
+.entry-content .jcos-vscode-guide pre { max-width: 100%; margin: 18px 0 24px; padding: 18px 20px; overflow-x: auto; border-radius: 10px; color: #e5edf5; background: #0f172a; scrollbar-color: #64748b #0f172a; }
+.entry-content .jcos-vscode-guide pre code { display: block; min-width: max-content; margin: 0; padding: 0; border: 0; border-radius: 0; color: #e5edf5; background: transparent; box-shadow: none; }
+.entry-content .jcos-vscode-guide .vscode-table-scroll { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.entry-content .jcos-vscode-guide kbd { display: inline-block; padding: 1px 6px; border: 1px solid #cbd5e1; border-bottom-width: 2px; border-radius: 5px; color: #0f172a; background: #f8fafc; font: 700 .88em/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .entry-content .jcos-vscode-guide .official-links li { margin-bottom: .65em; }
+.entry-content .jcos-vscode-guide a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
 .entry-content .jcos-vscode-guide .master-note { margin-top: 48px; padding-top: 18px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 13px; }
 
 /* JCOS Stock Daily briefs
@@ -498,10 +513,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .entry-content .ai-daily-post .adr-code, .entry-content .ai-daily-post .adr-prompt { padding: 15px; font-size: .78em; }
   .entry-content .ai-daily-post .adr-table { display: table; overflow: visible; white-space: normal; }
   .entry-content .jcos-vscode-guide { padding-top: 18px; word-break: normal; }
-  .entry-content .jcos-vscode-guide .vscode-hero { padding: 34px 24px; border-radius: 16px; }
+  .entry-content .jcos-vscode-guide .vscode-hero { margin-bottom: 22px; padding: 34px 24px 32px; border-radius: 16px; }
   .entry-content .jcos-vscode-guide .vscode-hero h1 { font-size: 29px; }
   .entry-content .jcos-vscode-guide .vscode-hero p { font-size: 16px; }
   .entry-content .jcos-vscode-guide h2 { margin-top: 42px; font-size: 23px; }
+  .entry-content .jcos-vscode-guide .vscode-summary, .entry-content .jcos-vscode-guide .vscode-toc { padding: 17px 18px; }
+  .entry-content .jcos-vscode-guide .procedure-step { margin: 20px 0; padding: 19px 18px; border-radius: 12px; box-shadow: none; }
   .entry-content .mn-report .mn-table-wrap table { display: table; overflow: visible; white-space: normal; }
   .tag-trail, .article-share { width: calc(100% - 38px); }
   .related-grid { grid-template-columns: repeat(2,1fr); }
