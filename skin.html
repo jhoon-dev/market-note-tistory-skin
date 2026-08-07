@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="[##_desc_##]">
   <meta name="theme-color" content="#132f4c">
   <title>[##_page_title_##]</title>
   <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
@@ -52,8 +51,8 @@
     </header>
 
     <div class="search-panel" id="search-panel" data-search-panel hidden>
-      <div class="search-panel__backdrop" data-search-close></div>
-      <div class="search-panel__dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
+      <div class="search-panel__backdrop" data-search-close aria-hidden="true"></div>
+      <div class="search-panel__dialog" role="dialog" aria-modal="true" aria-labelledby="search-title" tabindex="-1">
         <div class="search-panel__top">
           <strong id="search-title">블로그 검색</strong>
           <button type="button" data-search-close aria-label="검색 닫기">×</button>

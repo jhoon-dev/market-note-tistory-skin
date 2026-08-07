@@ -6,6 +6,7 @@
   var menuButton = document.querySelector("[data-menu-toggle]");
   var mobileMenu = document.querySelector("[data-mobile-menu]");
   var searchPanel = document.querySelector("[data-search-panel]");
+  var searchDialog = searchPanel && searchPanel.querySelector("[role='dialog']");
   var searchOpeners = document.querySelectorAll("[data-search-open]");
   var searchClosers = document.querySelectorAll("[data-search-close]");
   var lastFocusedElement = null;
@@ -17,6 +18,8 @@
     return url.origin + url.pathname.replace(/\/$/, "");
   }
 
+  var currentPath = normalizePath({ href: window.location.href });
+
   document.querySelectorAll(".top-nav, .mobile-menu").forEach(function (nav) {
     var seen = {};
     nav.querySelectorAll("a").forEach(function (link) {
@@ -26,7 +29,7 @@
         return;
       }
       seen[key] = true;
-      if (key === normalizePath({ href: window.location.href })) link.setAttribute("aria-current", "page");
+      if (key === currentPath) link.setAttribute("aria-current", "page");
     });
   });
 
@@ -100,6 +103,7 @@
     body.classList.add("search-open");
     input = searchPanel.querySelector("input[type='search']");
     if (input) input.focus();
+    else if (searchDialog) searchDialog.focus();
     setSearchBackgroundInert(true);
   }
 
@@ -156,12 +160,14 @@
 
   function showCopyResult(button, message) {
     var original = button.getAttribute("data-original-label") || button.textContent;
+    if (button.copyResultTimer) window.clearTimeout(button.copyResultTimer);
     button.setAttribute("data-original-label", original);
     button.textContent = message;
     button.classList.toggle("is-copy-error", message === "복사 실패");
-    window.setTimeout(function () {
+    button.copyResultTimer = window.setTimeout(function () {
       button.textContent = original;
       button.classList.remove("is-copy-error");
+      button.copyResultTimer = null;
     }, 4000);
   }
 
@@ -321,22 +327,69 @@
     }
   }
 
-  function enhanceTableScroller(wrapper) {
-    if (!wrapper.hasAttribute("role")) wrapper.setAttribute("role", "region");
-    if (!wrapper.hasAttribute("aria-label")) wrapper.setAttribute("aria-label", "표를 좌우로 스크롤할 수 있습니다");
-    if (!wrapper.hasAttribute("tabindex")) wrapper.tabIndex = 0;
+  var tableScrollers = [];
+
+  function setManagedAttribute(wrapper, name, value) {
+    var marker = "data-managed-" + name;
+    if (wrapper.hasAttribute(name)) return;
+    wrapper.setAttribute(name, value);
+    wrapper.setAttribute(marker, "true");
+  }
+
+  function removeManagedAttribute(wrapper, name) {
+    var marker = "data-managed-" + name;
+    if (wrapper.getAttribute(marker) !== "true") return;
+    wrapper.removeAttribute(name);
+    wrapper.removeAttribute(marker);
+  }
+
+  function updateTableScroller(wrapper) {
+    var scrollable = wrapper.scrollWidth > wrapper.clientWidth + 1;
+    if (scrollable) {
+      setManagedAttribute(wrapper, "role", "region");
+      setManagedAttribute(wrapper, "aria-label", "표를 좌우로 스크롤할 수 있습니다");
+      setManagedAttribute(wrapper, "tabindex", "0");
+      return;
+    }
+    removeManagedAttribute(wrapper, "role");
+    removeManagedAttribute(wrapper, "aria-label");
+    removeManagedAttribute(wrapper, "tabindex");
+  }
+
+  function registerTableScroller(wrapper) {
+    if (tableScrollers.indexOf(wrapper) !== -1) return;
+    tableScrollers.push(wrapper);
+    updateTableScroller(wrapper);
   }
 
   document.querySelectorAll(".entry-content table").forEach(function (table) {
     var existingWrapper = table.closest(".table-scroll, .content-table-wrap, .adr-table-wrap, .mn-table-wrap, .vscode-table-scroll");
     if (existingWrapper) {
-      enhanceTableScroller(existingWrapper);
+      registerTableScroller(existingWrapper);
       return;
     }
     var wrapper = document.createElement("div");
     wrapper.className = "table-scroll";
-    enhanceTableScroller(wrapper);
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
+    registerTableScroller(wrapper);
   });
+
+  if (tableScrollers.length) {
+    var tableResizeTicking = false;
+    function updateTableScrollers() {
+      tableScrollers.forEach(updateTableScroller);
+      tableResizeTicking = false;
+    }
+    function scheduleTableScrollerUpdate() {
+      if (tableResizeTicking) return;
+      tableResizeTicking = true;
+      window.requestAnimationFrame(updateTableScrollers);
+    }
+    window.addEventListener("resize", scheduleTableScrollerUpdate, { passive: true });
+    if ("ResizeObserver" in window) {
+      var tableResizeObserver = new ResizeObserver(scheduleTableScrollerUpdate);
+      tableScrollers.forEach(function (wrapper) { tableResizeObserver.observe(wrapper); });
+    }
+  }
 }());
