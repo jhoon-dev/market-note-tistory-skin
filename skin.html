@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="[##_desc_##]">
   <meta name="theme-color" content="#132f4c">
-  <title>[##_page_title_##] — [##_title_##]</title>
+  <title>[##_page_title_##]</title>
   <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
   <link rel="stylesheet" href="./style.css">
   <style>
@@ -36,7 +36,7 @@
         </nav>
 
         <div class="header-actions">
-          <button class="icon-button" type="button" data-search-open aria-label="검색 열기">
+          <button class="icon-button" type="button" data-search-open aria-label="검색 열기" aria-haspopup="dialog" aria-expanded="false" aria-controls="search-panel">
             <span class="search-icon" aria-hidden="true"></span>
           </button>
           <button class="menu-button" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
@@ -51,7 +51,7 @@
       </div>
     </header>
 
-    <div class="search-panel" data-search-panel hidden>
+    <div class="search-panel" id="search-panel" data-search-panel hidden>
       <div class="search-panel__backdrop" data-search-close></div>
       <div class="search-panel__dialog" role="dialog" aria-modal="true" aria-labelledby="search-title">
         <div class="search-panel__top">
@@ -59,11 +59,10 @@
           <button type="button" data-search-close aria-label="검색 닫기">×</button>
         </div>
         <s_search>
-          <label class="search-form">
-            <span class="sr-only">검색어</span>
-            <input type="search" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="종목, 지수, 키워드 검색" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
+          <div class="search-form">
+            <input type="search" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="종목, 지수, 키워드 검색" aria-label="검색어" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
             <button type="button" onclick="[##_search_onclick_submit_##]">검색</button>
-          </label>
+          </div>
         </s_search>
       </div>
     </div>
