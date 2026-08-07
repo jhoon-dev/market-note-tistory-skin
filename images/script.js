@@ -328,6 +328,7 @@
   }
 
   var tableScrollers = [];
+  var tableScrollerContents = [];
 
   function setManagedAttribute(wrapper, name, value) {
     var marker = "data-managed-" + name;
@@ -356,23 +357,25 @@
     removeManagedAttribute(wrapper, "tabindex");
   }
 
-  function registerTableScroller(wrapper) {
-    if (tableScrollers.indexOf(wrapper) !== -1) return;
-    tableScrollers.push(wrapper);
-    updateTableScroller(wrapper);
+  function registerTableScroller(wrapper, table) {
+    if (tableScrollerContents.indexOf(table) === -1) tableScrollerContents.push(table);
+    if (tableScrollers.indexOf(wrapper) === -1) {
+      tableScrollers.push(wrapper);
+      updateTableScroller(wrapper);
+    }
   }
 
   document.querySelectorAll(".entry-content table").forEach(function (table) {
     var existingWrapper = table.closest(".table-scroll, .content-table-wrap, .adr-table-wrap, .mn-table-wrap, .vscode-table-scroll");
     if (existingWrapper) {
-      registerTableScroller(existingWrapper);
+      registerTableScroller(existingWrapper, table);
       return;
     }
     var wrapper = document.createElement("div");
     wrapper.className = "table-scroll";
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
-    registerTableScroller(wrapper);
+    registerTableScroller(wrapper, table);
   });
 
   if (tableScrollers.length) {
@@ -390,6 +393,12 @@
     if ("ResizeObserver" in window) {
       var tableResizeObserver = new ResizeObserver(scheduleTableScrollerUpdate);
       tableScrollers.forEach(function (wrapper) { tableResizeObserver.observe(wrapper); });
+      tableScrollerContents.forEach(function (table) { tableResizeObserver.observe(table); });
     }
+    tableScrollerContents.forEach(function (table) {
+      table.querySelectorAll("img").forEach(function (image) {
+        if (!image.complete) image.addEventListener("load", scheduleTableScrollerUpdate, { once: true });
+      });
+    });
   }
 }());
