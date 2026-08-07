@@ -397,7 +397,10 @@
     }
     tableScrollerContents.forEach(function (table) {
       table.querySelectorAll("img").forEach(function (image) {
-        if (!image.complete) image.addEventListener("load", scheduleTableScrollerUpdate, { once: true });
+        if (!image.complete) {
+          image.addEventListener("load", scheduleTableScrollerUpdate, { once: true });
+          image.addEventListener("error", scheduleTableScrollerUpdate, { once: true });
+        }
       });
     });
   }
