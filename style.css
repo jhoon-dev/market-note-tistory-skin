@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.5
+ * Market Note for Tistory 1.5.7
  * Responsive finance-magazine skin
  */
 
@@ -130,8 +130,8 @@ button { color: inherit; }
 .search-form button, .primary-button { display: inline-flex; padding: 13px 18px; align-items: center; justify-content: center; gap: 12px; border: 0; border-radius: 12px; color: #fff; background: var(--blue-600); font-weight: 800; cursor: pointer; }
 
 /* Home cover */
-.cover-stack:empty { display: none; }
-.cover-stack:not(:empty) + .page-shell { display: none; }
+.cover-stack:not(:has(> *)) { display: none; }
+.cover-stack:has(> *) + .page-shell { display: none; }
 .market-hero { display: grid; min-height: 440px; grid-template-columns: 1.05fr .95fr; align-items: center; overflow: hidden; color: #fff; background: radial-gradient(circle at 88% 16%, rgba(100,181,235,.35), transparent 30%), linear-gradient(135deg, var(--navy-950), var(--navy-800) 60%, #276898); }
 .market-hero__copy { width: min(590px, calc(100% - 56px)); margin-left: max(28px, calc((100vw - 1180px) / 2)); padding: 64px 0; }
 .eyebrow { margin: 0 0 10px; color: var(--blue-600); font-size: .75rem; font-weight: 850; letter-spacing: .14em; }
@@ -482,7 +482,8 @@ button { color: inherit; }
 .related-posts { padding: 28px max(24px, calc((100% - var(--content-width)) / 2)); border-top: 1px solid var(--line); background: #f8fafc; }
 .related-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 13px; }
 .related-card { display: grid; gap: 7px; }
-.related-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 9px; background: #e9eef3; }
+.related-card__thumb { position: relative; display: block; overflow: hidden; aspect-ratio: 4/3; border-radius: 9px; background: #e9eef3; }
+.related-card__thumb img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
 .related-card strong { display: -webkit-box; overflow: hidden; color: var(--navy-950); font-size: .82rem; line-height: 1.45; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .related-card time { color: #8b98a6; font-size: .7rem; }
 .article-nav { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
@@ -548,7 +549,8 @@ button { color: inherit; }
 .pagination { display: flex; margin-top: 36px; align-items: center; justify-content: center; gap: 8px; }
 .pagination > span { display: flex; gap: 5px; }
 .page-number, .page-arrow { display: inline-grid; min-width: 38px; height: 38px; padding: 0 10px; place-items: center; border: 1px solid var(--line); border-radius: 10px; color: var(--slate); background: #fff; font-size: .82rem; cursor: pointer; }
-.page-number:hover, .page-arrow:hover, .page-number.selected { color: #fff; border-color: var(--blue-600); background: var(--blue-600); }
+.page-number:hover, .page-arrow:hover, .page-number:has(> .selected) { color: #fff; border-color: var(--blue-600); background: var(--blue-600); }
+.page-number:has(> .selected) { cursor: default; }
 .page-arrow.no-more-prev, .page-arrow.no-more-next { opacity: .35; pointer-events: none; }
 
 /* Footer */
@@ -668,7 +670,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   body { background: #fff; }
   .site-header, .sidebar, .site-footer, .reading-progress, .article-share, .comments, .article-nav, .related-posts { display: none !important; }
   .shell, .page-shell, .content-column, .article-view, .entry-content { width: 100%; max-width: none; margin: 0; padding: 0; border: 0; box-shadow: none; }
+  .article-view { overflow: visible; }
   .article-header { padding: 20px 0 30px; }
   a { text-decoration: none !important; }
+  .table-scroll, .content-table-wrap, .mn-table-wrap, .adr-table-wrap, .vscode-table-scroll { overflow: visible !important; }
+  .entry-content table { width: 100% !important; min-width: 0 !important; overflow: visible !important; white-space: normal !important; font-size: .8rem; }
   .entry-content table, .entry-content figure { break-inside: avoid; }
 }
