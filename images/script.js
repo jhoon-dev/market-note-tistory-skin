@@ -234,7 +234,7 @@
   }
 
   document.querySelectorAll(".entry-content table").forEach(function (table) {
-    if (table.parentElement && (table.parentElement.classList.contains("table-scroll") || table.parentElement.classList.contains("adr-table-wrap") || table.parentElement.classList.contains("mn-table-wrap"))) return;
+    if (table.parentElement && (table.parentElement.classList.contains("table-scroll") || table.parentElement.classList.contains("content-table-wrap") || table.parentElement.classList.contains("adr-table-wrap") || table.parentElement.classList.contains("mn-table-wrap"))) return;
     var wrapper = document.createElement("div");
     wrapper.className = "table-scroll";
     wrapper.setAttribute("role", "region");
