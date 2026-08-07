@@ -9,6 +9,7 @@
   var searchOpeners = document.querySelectorAll("[data-search-open]");
   var searchClosers = document.querySelectorAll("[data-search-close]");
   var lastFocusedElement = null;
+  var searchBackgroundState = [];
 
   function normalizePath(link) {
     var url;
@@ -29,38 +30,87 @@
     });
   });
 
-  function closeMenu() {
+  function updateMenuState(isOpen) {
+    var label;
+    if (!menuButton) return;
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    label = menuButton.querySelector(".sr-only");
+    if (label) label.textContent = isOpen ? "메뉴 닫기" : "메뉴 열기";
+  }
+
+  function closeMenu(restoreFocus) {
     if (!menuButton || !mobileMenu) return;
+    var wasOpen = !mobileMenu.hidden;
     mobileMenu.hidden = true;
-    menuButton.setAttribute("aria-expanded", "false");
+    updateMenuState(false);
     body.classList.remove("menu-open");
+    if (restoreFocus && wasOpen) menuButton.focus();
   }
 
   function toggleMenu() {
     if (!menuButton || !mobileMenu) return;
     var nextOpen = mobileMenu.hidden;
     mobileMenu.hidden = !nextOpen;
-    menuButton.setAttribute("aria-expanded", String(nextOpen));
+    updateMenuState(nextOpen);
     body.classList.toggle("menu-open", nextOpen);
   }
 
+  function setSearchBackgroundInert(isInert) {
+    var parent;
+    if (!searchPanel) return;
+
+    if (isInert) {
+      parent = searchPanel.parentElement;
+      if (!parent) return;
+      searchBackgroundState = [];
+      Array.prototype.forEach.call(parent.children, function (element) {
+        if (element === searchPanel) return;
+        searchBackgroundState.push({
+          element: element,
+          inert: element.inert,
+          ariaHidden: element.getAttribute("aria-hidden")
+        });
+        element.inert = true;
+        element.setAttribute("aria-hidden", "true");
+      });
+      return;
+    }
+
+    searchBackgroundState.forEach(function (state) {
+      state.element.inert = state.inert;
+      if (state.ariaHidden === null) state.element.removeAttribute("aria-hidden");
+      else state.element.setAttribute("aria-hidden", state.ariaHidden);
+    });
+    searchBackgroundState = [];
+  }
+
+  function setSearchExpanded(isOpen) {
+    searchOpeners.forEach(function (button) {
+      button.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
   function openSearch() {
+    var input;
     if (!searchPanel) return;
     lastFocusedElement = document.activeElement;
     closeMenu();
     searchPanel.hidden = false;
+    setSearchExpanded(true);
     body.classList.add("search-open");
-    window.setTimeout(function () {
-      var input = searchPanel.querySelector("input[type='search']");
-      if (input) input.focus();
-    }, 30);
+    input = searchPanel.querySelector("input[type='search']");
+    if (input) input.focus();
+    setSearchBackgroundInert(true);
   }
 
   function closeSearch() {
     if (!searchPanel || searchPanel.hidden) return;
     searchPanel.hidden = true;
+    setSearchExpanded(false);
+    setSearchBackgroundInert(false);
     body.classList.remove("search-open");
     if (lastFocusedElement && typeof lastFocusedElement.focus === "function") lastFocusedElement.focus();
+    lastFocusedElement = null;
   }
 
   if (menuButton) menuButton.addEventListener("click", toggleMenu);
@@ -68,9 +118,31 @@
   searchClosers.forEach(function (button) { button.addEventListener("click", closeSearch); });
 
   document.addEventListener("keydown", function (event) {
+    var focusable;
+    var first;
+    var last;
+
+    if (event.key === "Tab" && searchPanel && !searchPanel.hidden) {
+      focusable = Array.prototype.filter.call(searchPanel.querySelectorAll("button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href], [tabindex]:not([tabindex='-1'])"), function (element) {
+        return element.offsetParent !== null;
+      });
+      if (focusable.length) {
+        first = focusable[0];
+        last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
     if (event.key === "Escape") {
+      var searchWasOpen = searchPanel && !searchPanel.hidden;
       closeSearch();
-      closeMenu();
+      if (!searchWasOpen) closeMenu(true);
     }
   });
 
@@ -96,6 +168,7 @@
   function legacyCopy(text) {
     var input = document.createElement("textarea");
     var copied = false;
+    var previouslyFocused = document.activeElement;
     input.value = text;
     input.setAttribute("readonly", "");
     input.setAttribute("aria-hidden", "true");
@@ -110,28 +183,23 @@
     input.setSelectionRange(0, input.value.length);
     try { copied = document.execCommand("copy"); } catch (error) { copied = false; }
     document.body.removeChild(input);
+    if (previouslyFocused && typeof previouslyFocused.focus === "function") previouslyFocused.focus();
     return copied;
   }
 
   function copyPageLink(button) {
     var url = window.location.href.split("#")[0];
 
-    // 사용자 클릭 이벤트 안에서 실행되는 호환 방식을 먼저 사용합니다.
-    if (legacyCopy(url)) {
-      showCopyResult(button, "복사 완료");
-      return;
-    }
-
     if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(url).then(function () {
         showCopyResult(button, "복사 완료");
       }).catch(function () {
-        showCopyResult(button, "복사 실패");
+        showCopyResult(button, legacyCopy(url) ? "복사 완료" : "복사 실패");
       });
       return;
     }
 
-    showCopyResult(button, "복사 실패");
+    showCopyResult(button, legacyCopy(url) ? "복사 완료" : "복사 실패");
   }
 
   document.querySelectorAll("[data-copy-link]").forEach(function (button) {
@@ -141,6 +209,16 @@
   var articleContent = document.querySelector("[data-entry-content]");
   var progress = document.querySelector("[data-reading-progress]");
   var progressBar = progress && progress.querySelector("span");
+
+  function createUniqueId(base) {
+    var candidate = base;
+    var suffix = 2;
+    while (document.getElementById(candidate)) {
+      candidate = base + "-" + suffix;
+      suffix += 1;
+    }
+    return candidate;
+  }
 
   if (articleContent) {
     var plainText = (articleContent.textContent || "").replace(/\s+/g, " ").trim();
@@ -159,7 +237,7 @@
     if (toc && tocList && headings.length >= 2) {
       var introAnchor = document.createElement("span");
       var introLink = document.createElement("a");
-      introAnchor.id = "report-summary";
+      introAnchor.id = createUniqueId("report-summary");
       introAnchor.className = "toc-anchor";
       introAnchor.setAttribute("aria-hidden", "true");
       articleContent.insertBefore(introAnchor, articleContent.firstChild);
@@ -171,7 +249,9 @@
       tocLinks.push(introLink);
 
       headings.forEach(function (heading, index) {
-        if (!heading.id) heading.id = "report-section-" + (index + 1);
+        if (!heading.id || document.getElementById(heading.id) !== heading) {
+          heading.id = createUniqueId("report-section-" + (index + 1));
+        }
         var link = document.createElement("a");
         link.href = "#" + heading.id;
         link.textContent = heading.textContent.trim();
@@ -224,22 +304,38 @@
         progressBar.style.transform = "scaleX(" + ratio + ")";
         ticking = false;
       }
-      window.addEventListener("scroll", function () {
+
+      function scheduleProgressUpdate() {
         if (ticking) return;
         ticking = true;
         window.requestAnimationFrame(updateProgress);
-      }, { passive: true });
+      }
+
+      window.addEventListener("scroll", scheduleProgressUpdate, { passive: true });
+      window.addEventListener("resize", scheduleProgressUpdate, { passive: true });
+      if ("ResizeObserver" in window) {
+        var progressResizeObserver = new ResizeObserver(scheduleProgressUpdate);
+        progressResizeObserver.observe(articleContent);
+      }
       updateProgress();
     }
   }
 
+  function enhanceTableScroller(wrapper) {
+    if (!wrapper.hasAttribute("role")) wrapper.setAttribute("role", "region");
+    if (!wrapper.hasAttribute("aria-label")) wrapper.setAttribute("aria-label", "표를 좌우로 스크롤할 수 있습니다");
+    if (!wrapper.hasAttribute("tabindex")) wrapper.tabIndex = 0;
+  }
+
   document.querySelectorAll(".entry-content table").forEach(function (table) {
-    if (table.parentElement && (table.parentElement.classList.contains("table-scroll") || table.parentElement.classList.contains("content-table-wrap") || table.parentElement.classList.contains("adr-table-wrap") || table.parentElement.classList.contains("mn-table-wrap"))) return;
+    var existingWrapper = table.closest(".table-scroll, .content-table-wrap, .adr-table-wrap, .mn-table-wrap, .vscode-table-scroll");
+    if (existingWrapper) {
+      enhanceTableScroller(existingWrapper);
+      return;
+    }
     var wrapper = document.createElement("div");
     wrapper.className = "table-scroll";
-    wrapper.setAttribute("role", "region");
-    wrapper.setAttribute("aria-label", "표를 좌우로 스크롤할 수 있습니다");
-    wrapper.tabIndex = 0;
+    enhanceTableScroller(wrapper);
     table.parentNode.insertBefore(wrapper, table);
     wrapper.appendChild(table);
   });
