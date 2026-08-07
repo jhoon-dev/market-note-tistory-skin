@@ -1,7 +1,19 @@
 /*
- * Market Note for Tistory 1.5.4
+ * Market Note for Tistory 1.5.5
  * Responsive finance-magazine skin
  */
+
+@property --skin-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #2f78b7;
+}
+
+@property --skin-reading-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 780px;
+}
 
 :root {
   --navy-950: #0c2238;
@@ -301,6 +313,18 @@ button { color: inherit; }
 .entry-content .content-table-wrap table { display: table; width: 100%; min-width: 680px; margin: 0; overflow: visible; white-space: normal; }
 .entry-content .content-table-wrap th, .entry-content .content-table-wrap td { text-align: left; }
 .entry-content .content-chart > * { min-width: 360px; }
+.entry-content .content-chart-row { display: grid; grid-template-columns: 105px minmax(90px,1fr) 88px; gap: 8px; align-items: center; margin: 9px 0; }
+.entry-content .content-chart-row > strong { text-align: right; }
+.entry-content .content-chart-bar { width: 100%; height: 15px; overflow: hidden; border: 0; border-radius: 8px; background: #e7edf4; accent-color: var(--content-primary); }
+.entry-content .content-chart-bar.positive { accent-color: var(--green); }
+.entry-content .content-chart-bar.negative { accent-color: var(--red); }
+.entry-content .content-chart-bar::-webkit-progress-bar { border-radius: 8px; background: #e7edf4; }
+.entry-content .content-chart-bar::-webkit-progress-value { border-radius: 8px; background: var(--content-primary); }
+.entry-content .content-chart-bar.positive::-webkit-progress-value { background: var(--green); }
+.entry-content .content-chart-bar.negative::-webkit-progress-value { background: var(--red); }
+.entry-content .content-chart-bar::-moz-progress-bar { border-radius: 8px; background: var(--content-primary); }
+.entry-content .content-chart-bar.positive::-moz-progress-bar { background: var(--green); }
+.entry-content .content-chart-bar.negative::-moz-progress-bar { background: var(--red); }
 .entry-content .content-code { max-width: 100%; margin: 18px 0 24px; padding: 18px 20px; overflow-x: auto; border-radius: 10px; color: #e5edf5; background: #10263b; white-space: pre; }
 .entry-content .content-code code { display: block; min-width: max-content; margin: 0; padding: 0; border: 0; color: inherit; background: transparent; font-family: ui-monospace,SFMono-Regular,Consolas,monospace; }
 .entry-content .content-timeline { display: grid; gap: 11px; margin: 24px 0; }
@@ -430,6 +454,8 @@ button { color: inherit; }
 .entry-content .jcos-vscode-guide pre { max-width: 100%; margin: 18px 0 24px; padding: 18px 20px; overflow-x: auto; border-radius: 10px; color: #e5edf5; background: #0f172a; scrollbar-color: #64748b #0f172a; }
 .entry-content .jcos-vscode-guide pre code { display: block; min-width: max-content; margin: 0; padding: 0; border: 0; border-radius: 0; color: #e5edf5; background: transparent; box-shadow: none; }
 .entry-content .jcos-vscode-guide .vscode-table-scroll { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.entry-content .jcos-vscode-guide .vscode-table-scroll table { min-width: 680px; }
+.entry-content .jcos-vscode-guide .vscode-table-scroll th, .entry-content .jcos-vscode-guide .vscode-table-scroll td { text-align: left; }
 .entry-content .jcos-vscode-guide kbd { display: inline-block; padding: 1px 6px; border: 1px solid #cbd5e1; border-bottom-width: 2px; border-radius: 5px; color: #0f172a; background: #f8fafc; font: 700 .88em/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .entry-content .jcos-vscode-guide .official-links li { margin-bottom: .65em; }
 .entry-content .jcos-vscode-guide a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
