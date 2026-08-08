@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.7
+ * Market Note for Tistory 1.5.8
  * Responsive finance-magazine skin
  */
 
@@ -338,6 +338,7 @@ button { color: inherit; }
 .entry-content .content-closing h2, .entry-content .content-closing p { color: inherit; }
 .entry-content .content-closing > :last-child { margin-bottom: 0; }
 .entry-content .content-sources { margin: 36px 0 0; padding: 20px 0 0; border-top: 1px solid var(--content-border); }
+.entry-content ul.content-sources, .entry-content ol.content-sources { padding-left: 1.45em; }
 .entry-content .content-sources a { font-size: .88em; word-break: break-all; }
 
 /* Legacy: JCOS AI Daily reports
