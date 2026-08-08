@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.9
+ * Market Note for Tistory 1.5.10
  * Responsive finance-magazine skin
  */
 
@@ -302,6 +302,7 @@ button { color: inherit; }
 .entry-content .content-section > h2 { margin-top: 0; }
 .entry-content .content-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin: 24px 0; }
 .entry-content .content-card, .entry-content .content-step { padding: 20px 22px; border: 1px solid var(--content-border); border-radius: 13px; background: #fff; box-shadow: 0 7px 22px rgba(19,47,76,.05); }
+.entry-content .content-step { margin: 20px 0; }
 .entry-content .content-card > :first-child, .entry-content .content-step > :first-child { margin-top: 0; }
 .entry-content .content-card > :last-child, .entry-content .content-step > :last-child { margin-bottom: 0; }
 .entry-content .content-callout { margin: 23px 0; padding: 19px 21px; border: 0; border-left: 4px solid var(--content-primary); border-radius: 10px; background: var(--blue-100); }
