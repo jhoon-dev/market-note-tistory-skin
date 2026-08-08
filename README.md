@@ -2,7 +2,7 @@
 
 투자 브리핑과 시장 분석 콘텐츠를 읽기 편하게 보여주는 티스토리 반응형 스킨입니다.
 
-- 현재 버전: `v1.5.7`
+- 현재 버전: `v1.6.0`
 - 라이선스: MIT
 - 주요 기능: 반응형 카드 레이아웃, 검색, 자동 목차, 예상 읽기 시간, 읽기 진행률, 모바일 표 스크롤
 
@@ -74,9 +74,14 @@
 | `content-callout--success` | 긍정 강조문 |
 | `content-table-wrap` | 모바일 스크롤 표 |
 | `content-chart` | 넓은 차트 영역 |
-| `content-code`, `content-key` | 코드 블록과 키보드 키 |
+| `content-code`, `content-key`, `kbd` | 코드 블록과 입체 키캡 |
 | `content-timeline`, `content-steps` | 타임라인과 단계 목록 |
 | `content-closing`, `content-sources` | 맺음말과 출처 |
+| `content-cover`, `content-title`, `content-eyebrow` | 마스터 문서 표지와 제목 |
+| `content-kicker`, `content-section-title`, `content-subtitle` | 마스터 문서 제목 계층 |
+| `content-summary-list`, `content-summary-item` | 번호형 핵심 요약 |
+| `content-list`, `content-paragraph`, `content-table` | 목록·문단·표 |
+| `content-source-list`, `content-footer` | 출처와 발행 메타데이터 |
 
 기존 `ai-daily-post`, `jcos-vscode-guide`, `mn-report` 선택자도 이전 게시물과의 호환을 위해 계속 지원합니다.
 
