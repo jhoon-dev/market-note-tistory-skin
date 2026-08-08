@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.8
+ * Market Note for Tistory 1.5.9
  * Responsive finance-magazine skin
  */
 
@@ -333,7 +333,7 @@ button { color: inherit; }
 .entry-content .content-steps { margin: 24px 0; padding: 0; list-style: none; counter-reset: content-step; }
 .entry-content .content-steps > li { position: relative; margin: 0 0 11px; padding: 16px 18px 16px 58px; border: 1px solid var(--content-border); border-radius: 11px; background: #f9fbfe; list-style: none; counter-increment: content-step; }
 .entry-content .content-steps > li::before { position: absolute; top: 16px; left: 18px; display: flex; width: 27px; height: 27px; align-items: center; justify-content: center; border-radius: 7px; color: #fff; background: var(--content-primary); font-size: .78em; font-weight: 800; content: counter(content-step); }
-.entry-content .content-key { display: inline-block; padding: 1px 6px; border: 1px solid #cbd5e1; border-bottom-width: 2px; border-radius: 5px; color: var(--navy-950); background: #f8fafc; font: 700 .88em/1.5 ui-monospace,SFMono-Regular,Consolas,monospace; }
+.entry-content kbd, .entry-content .content-key { display: inline-flex; min-width: 1.8em; padding: .12em .5em; align-items: center; justify-content: center; border: 1px solid #b8c3d1; border-bottom: 3px solid #8d9bab; border-radius: 6px; color: var(--navy-950); background: linear-gradient(180deg,#fff 0%,#eef2f6 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 1px 2px rgba(15,23,42,.14); font: 700 .86em/1.35 ui-monospace,SFMono-Regular,Consolas,monospace; letter-spacing: -.01em; vertical-align: .08em; white-space: nowrap; }
 .entry-content .content-closing { margin-top: 32px; padding: 23px 24px; border-radius: 14px; color: #eef5ff; background: var(--navy-900); }
 .entry-content .content-closing h2, .entry-content .content-closing p { color: inherit; }
 .entry-content .content-closing > :last-child { margin-bottom: 0; }
@@ -457,7 +457,6 @@ button { color: inherit; }
 .entry-content .jcos-vscode-guide .vscode-table-scroll { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .entry-content .jcos-vscode-guide .vscode-table-scroll table { min-width: 680px; }
 .entry-content .jcos-vscode-guide .vscode-table-scroll th, .entry-content .jcos-vscode-guide .vscode-table-scroll td { text-align: left; }
-.entry-content .jcos-vscode-guide kbd { display: inline-block; padding: 1px 6px; border: 1px solid #cbd5e1; border-bottom-width: 2px; border-radius: 5px; color: #0f172a; background: #f8fafc; font: 700 .88em/1.5 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .entry-content .jcos-vscode-guide .official-links li { margin-bottom: .65em; }
 .entry-content .jcos-vscode-guide a:focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
 .entry-content .jcos-vscode-guide .master-note { margin-top: 48px; padding-top: 18px; border-top: 1px solid #e2e8f0; color: #64748b; font-size: 13px; }
