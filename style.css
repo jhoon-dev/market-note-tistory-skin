@@ -1,5 +1,5 @@
 /*
- * Market Note for Tistory 1.5.10
+ * Market Note for Tistory 1.6.0
  * Responsive finance-magazine skin
  */
 
@@ -342,6 +342,33 @@ button { color: inherit; }
 .entry-content ul.content-sources, .entry-content ol.content-sources { padding-left: 1.45em; }
 .entry-content .content-sources a { font-size: .88em; word-break: break-all; }
 
+/* Extended portable article contract
+ * Supports the semantic class set emitted by current JCOS master documents.
+ */
+.entry-content .content-cover { margin: 0 0 34px; padding: 38px 34px; overflow: hidden; border-radius: 18px; color: #fff; background: linear-gradient(135deg,var(--navy-950) 0%,var(--navy-800) 55%,var(--blue-600) 100%); box-shadow: 0 16px 38px rgba(15,42,68,.16); }
+.entry-content .content-cover > :last-child { margin-bottom: 0; }
+.entry-content .content-cover .content-eyebrow { display: inline-block; margin: 0 0 13px; padding: 4px 10px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; color: #fff; font-size: .8em; font-weight: 800; letter-spacing: .055em; }
+.entry-content .content-cover .content-title { margin: 0 0 15px; padding: 0; border: 0; color: #fff; background: none; font-size: clamp(1.7rem,4vw,2.3rem); line-height: 1.34; letter-spacing: -.045em; }
+.entry-content .content-cover .content-lead { max-width: 720px; margin: 0 0 13px; color: #e8f2fb; font-size: 1.04em; line-height: 1.75; }
+.entry-content .content-cover .content-meta { margin: 0; color: rgba(255,255,255,.74); }
+.entry-content .content-kicker { display: block; margin: 0 0 7px; color: var(--content-primary); font-size: .78em; font-weight: 800; letter-spacing: .075em; }
+.entry-content .content-section-title { margin: 0 0 18px; padding: 0 0 11px; border: 0; border-bottom: 2px solid var(--content-heading); color: var(--content-heading); font-size: 1.48rem; line-height: 1.42; }
+.entry-content .content-subtitle { margin: 26px 0 10px; color: var(--content-heading); font-size: 1.12rem; line-height: 1.5; }
+.entry-content .content-paragraph { margin: 0 0 16px; }
+.entry-content .content-list { margin: 14px 0 22px; padding-left: 1.45em; }
+.entry-content .content-list > li { margin: 7px 0; }
+.entry-content .content-summary-list { display: grid; margin: 0 0 24px; padding: 0; gap: 12px; list-style: none; counter-reset: content-summary-item; }
+.entry-content .content-summary-item { position: relative; margin: 0; padding: 17px 18px 17px 55px; border: 1px solid var(--content-border); border-radius: 12px; background: #f8fafc; list-style: none; counter-increment: content-summary-item; }
+.entry-content .content-summary-item::before { position: absolute; top: 17px; left: 17px; display: inline-flex; width: 25px; height: 25px; align-items: center; justify-content: center; border-radius: 7px; color: #fff; background: var(--content-primary); font-size: .75em; font-weight: 800; content: counter(content-summary-item); }
+.entry-content .content-summary-item > strong:first-child { color: var(--content-heading); }
+.entry-content .content-table { width: 100%; min-width: 680px; margin: 0; white-space: normal; }
+.entry-content .content-source-list { margin: 0; padding-left: 1.45em; }
+.entry-content .content-source-list > li { margin: 7px 0; }
+.entry-content .content-source-list a { font-size: .88em; word-break: break-all; }
+.entry-content .content-footer { margin-top: 42px; padding: 22px 24px; border: 1px solid var(--content-border); border-radius: 14px; color: var(--content-muted); background: #f8fafc; }
+.entry-content .content-footer .content-section-title { color: var(--content-heading); font-size: 1.18rem; }
+.entry-content .content-footer > :last-child { margin-bottom: 0; }
+
 /* Legacy: JCOS AI Daily reports
  * Source: MASTER_AI_DAILY_v1.0.1 (LOCKED)
  * Report markup stays portable; the skin owns the shared presentation layer.
@@ -612,8 +639,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .entry-content h2 { font-size: 1.42rem; }
   .entry-content table { display: block; overflow-x: auto; white-space: nowrap; }
   .entry-content .table-scroll table { display: table; overflow: visible; white-space: normal; }
-  .entry-content .content-hero { padding: 30px 23px; border-radius: 15px; }
+  .entry-content .content-hero, .entry-content .content-cover { padding: 30px 23px; border-radius: 15px; }
   .entry-content .content-grid { grid-template-columns: 1fr; }
+  .entry-content .content-section-title { font-size: 1.35rem; }
+  .entry-content .content-summary-item { padding: 16px 16px 16px 51px; }
+  .entry-content .content-summary-item::before { top: 16px; left: 15px; }
+  .entry-content .content-footer { padding: 19px 18px; }
   .entry-content .content-timeline > div { grid-template-columns: 1fr; gap: 3px; }
   .entry-content .content-table-wrap table { display: table; overflow: visible; white-space: normal; }
   .entry-content .ai-daily-post { overflow-wrap: anywhere; word-break: normal; }
